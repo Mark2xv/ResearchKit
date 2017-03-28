@@ -135,6 +135,10 @@ static const CGFloat TickViewSize = 122;
     return [super accessibilityTraits] | UIAccessibilityTraitImage;
 }
 
+-(void)setFrame:(CGRect)frame {
+    [super setFrame: CGRectMake(0, 0, 120, 120)];
+}
+
 @end
 
 
@@ -144,6 +148,9 @@ static const CGFloat TickViewSize = 122;
 
 - (void)stepDidChange {
     [super stepDidChange];
+ 
+    self.stepView.stepView.translatesAutoresizingMaskIntoConstraints = YES;
+    self.stepView.stepView.frame = CGRectMake(0, 0, 120, 120);
     
     _completionStepView = [ORKCompletionStepView new];
     
