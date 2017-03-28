@@ -149,13 +149,12 @@ static const CGFloat TickViewSize = 122;
 - (void)stepDidChange {
     [super stepDidChange];
  
+    _completionStepView = [ORKCompletionStepView new];
+    self.stepView.stepView = _completionStepView;
+ 
     self.stepView.stepView.translatesAutoresizingMaskIntoConstraints = YES;
     self.stepView.stepView.frame = CGRectMake(0, 0, 120, 120);
-    
-    _completionStepView = [ORKCompletionStepView new];
-    
-    self.stepView.stepView = _completionStepView;
-    
+
     self.stepView.continueSkipContainer.continueButtonItem = nil;
 }
 
